@@ -1,0 +1,25 @@
+* {
+    font-family: "Poppins";
+    background-color: #EEE8C5;
+    padding: 0;
+    margin: 0;
+}
+
+#header {
+    background-image: url(./images/leaf.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    margin-top: 4rem;
+    width: 100vw;
+    height: 30vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+}
+
+#header h1 {
+    background-color: unset;
+    font-weight: 600;
+}
