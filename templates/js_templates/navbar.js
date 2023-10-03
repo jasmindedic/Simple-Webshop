@@ -26,6 +26,9 @@ function createNavBar() {
         <li><a href="#">Home</a></li>
         <li><a href="#">Products</a></li>
         <li><a href="#">Contact</a></li>
+        <li id="cart-list-icon"><a href="#">
+            <span id="cart-icon" class="material-symbols-outlined">shopping_bag</span>
+        </a></li>
     </ul>
     `;
 };

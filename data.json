@@ -1,0 +1,37 @@
+[
+    {
+        "productDesc": "Hand Cream",
+        "img": "./images/product_1.png",
+        "price": "100$"
+    },
+
+    {
+        "productDesc": "Face Cream",
+        "img": "./images/product_2.png",
+        "price": "120$"
+    },
+
+    {
+        "productDesc": "Body Lotion",
+        "img": "./images/product_3.png",
+        "price": "110$"
+    },
+
+    {
+        "productDesc": "Ageing Cream",
+        "img": "./images/product_4.png",
+        "price": "130$"
+    },
+
+    {
+        "productDesc": "Eye Cream",
+        "img": "./images/product_5.png",
+        "price": "140$"
+    },
+
+    {
+        "productDesc": "Body Cream",
+        "img": "./images/product_6.png",
+        "price": "190$"
+    }
+]

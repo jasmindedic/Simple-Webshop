@@ -22,13 +22,22 @@
     position: relative;
 }
 
+#cart-icon {
+    font-size: 2.2rem;
+    transition: all 0.3s ease-in-out;
+}
+
+#cart-icon:hover {
+    transform: scale(1.3);
+}
+
 .logo {
     width: 6rem;
     padding-top: 0.8rem;
 }
 
 /* Hover effect for nav links */
-.nav-links li a::after {
+.nav-links li:not(#cart-list-icon) a::after {
     content: "";
     position: absolute;
     width: 0%;
@@ -40,7 +49,7 @@
     transition: width 0.4s ease-in-out;
 }
 
-.nav-links li a:hover::after {
+.nav-links li:not(#cart-list-icon) a:hover::after {
     width: 100%;
 }
 
@@ -96,7 +105,5 @@
     #nav-links.active li {
         width: 100%;
         text-align: center;
-    }
-
-    
+    } 
 }
