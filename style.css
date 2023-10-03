@@ -29,6 +29,7 @@ html, body {
 #header h1 {
     background-color: unset;
     font-weight: 600;
+    text-align: center;
 }
 
 /* Styling for Products */
@@ -136,6 +137,27 @@ html, body {
 
     .product {
         width: 50vw;
+        height: 22rem;
+    }
+}
+
+@media(max-width: 515px) {
+    .product {
+        width: 55vw;
+        height: 22rem;
+    }
+}
+
+@media(max-width: 460px) {
+    .product {
+        width: 60vw;
+        height: 22rem;
+    }
+}
+
+@media(max-width: 400px) {
+    .product {
+        width: 70vw;
         height: 22rem;
     }
 }
