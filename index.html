@@ -6,12 +6,15 @@
     <title>Simple Webshop</title>
     <!-- General css link -->
     <link rel="stylesheet" href="./style.css">
-    <!-- Material icons css link -->
+    <!-- icon css links -->
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- Font css link -->
     <link rel="stylesheet" href="./fonts/font.css">
-    <!-- Header css link -->
+    <!-- Navigation bar css link -->
     <link rel="stylesheet" href="./templates/css_templates/navbar.css">
+    <!-- Footer css link -->
+    <link rel="stylesheet" href="./templates/css_templates/footer.css">
 </head>
 <body onload="init()">
     <!-- Navigation bar -->
@@ -20,9 +23,18 @@
     <div id="header"><h1>Best Products in the city!</h1></div>
     <!-- Products -->
     <div id="products-container"></div>
-
+    <!-- Footer -->
+    <div id="footer">
+        <div class="links">
+            <i class="fa-brands fa-square-instagram"></i>
+            <i class="fa-brands fa-square-x-twitter"></i>
+            <i class="fa-brands fa-meta"></i>
+            <i class="fa-brands fa-square-github"></i>
+        </div>
+    </div>
     <!-- JS link -->
     <script src="./templates/js_templates/navbar.js"></script>
+    <script src="./templates/js_templates/footer.js"></script>
     <script src="./script.js"></script>
 </body>
 </html>

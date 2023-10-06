@@ -24,11 +24,6 @@ function renderProducts(){
                 let product = data[i];
                 productsContainer.innerHTML += createProducts(product);
             }
-            /* const product1 = data[0];
-            const productDesc1 = product1['product-desc'];
-            console.log(`Product 1 Description: ${productDesc1}`);
-            
-            console.log(`This is the promise data: ${data}`); */
         })
         .catch((error) => {
             console.log('Error while loading data');
@@ -56,10 +51,6 @@ function fetchProductData() {
             });
         }
 
-
-function generateProducts(){
-
-}
 
 function createProducts(product) {
     return  /* html */ `
