@@ -16,6 +16,9 @@
     color: #fff;
     font-size: 3.5rem;
 } */
+a {
+    background-color: transparent;
+}
 
 .links {
     display: flex;
