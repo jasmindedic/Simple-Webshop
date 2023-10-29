@@ -37,7 +37,7 @@ function renderProducts() {
                 productsContainer.innerHTML += createProducts(product);
             }
 
-            for (let i = 0; i <= data.length; i++) {
+            for (let i = 1; i <= data.length; i++) {
                 let productKey = `product${i}`;
                 test[productKey] = 0;
                 console.log(`Initialized test value for product ${i}: ${test[productKey]}`);
@@ -77,7 +77,6 @@ function buyButtonUpdate(itemCounter) {
     `;
 }
 
-
 function addItem(add) {
     let pressedProductNumber = add.parentNode.parentNode.children[0].children[0].id.slice(7);
     let buyAmount = getById(`buyAmount${pressedProductNumber}`);
@@ -93,6 +92,18 @@ function addItem(add) {
             console.log(`PressedProductNumber: ${pressedProductNumber}`);
 };
 
+function removeItem(remove){
+    let pressedProductNumber = remove.parentNode.parentNode.children[0].children[0].id.slice(7);
+    let buyAmount = getById(`buyAmount${pressedProductNumber}`);
+
+            let currentCounter = test[`product${pressedProductNumber}`];
+            currentCounter--;
+            test[`product${pressedProductNumber}`] = currentCounter;
+
+            buyAmount.innerHTML = "";
+            buyAmount.innerHTML = buyButtonUpdate(currentCounter);
+}
+
 
 function createProducts(product) {
     return  /* html */ `
@@ -107,7 +118,7 @@ function createProducts(product) {
                 </div>
                 <div class="decrease-increase-btns">
                     <button onclick="addItem(this)" id="add-btn${addBtnNumber}" class="increase">+</button>
-                    <button onclick="removeItem()" class="decrease">-</button>
+                    <button onclick="removeItem(this)" class="decrease">-</button>
                 </div>
             </div>
         </div>
