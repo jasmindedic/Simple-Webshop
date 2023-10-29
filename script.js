@@ -37,9 +37,10 @@ function renderProducts() {
                 productsContainer.innerHTML += createProducts(product);
             }
 
-            for (let i = 0; i < data.length; i++) {
+            for (let i = 0; i <= data.length; i++) {
                 let productKey = `product${i}`;
                 test[productKey] = 0;
+                console.log(`Initialized test value for product ${i}: ${test[productKey]}`);
             };
 
         })
@@ -70,7 +71,6 @@ function fetchProductData() {
 }
 
 
-
 function buyButtonUpdate(itemCounter) {
     return /* html */`
             <p class="item-num">${itemCounter}</p>
@@ -82,57 +82,15 @@ function addItem(add) {
     let pressedProductNumber = add.parentNode.parentNode.children[0].children[0].id.slice(7);
     let buyAmount = getById(`buyAmount${pressedProductNumber}`);
 
-    /*  if (buyAmount.innerHTML != "") {
-         itemCounter++;
-         console.log("workiiiii")
-     }
- 
-     buyAmount.innerHTML = "";
-     buyAmount.innerHTML = buyButtonUpdate(itemCounter); */
-
-    fetchProductData()
-        .then((data) => {
-            let dataLength = data.length;
-
-            /* for (let i = 0; i < data.length; i++) {
-                let productKey = `product${i}`;
-                test[productKey] = 0;
-            }; */
-
-            /* let objectCounter = 0;
-            for (let key in test) {
-                if (test.hasOwnProperty(key)) {
-                    objectCounter++;
-                }
-            }; */
-
-            /* for (let i = 0; i < objectCounter; i++) {
-                let propertyName = `product${i}`;
-                if (pressedProductNumber == test[propertyName]) {
-                    console.log(`pressedPoroductnumber: ${pressedProductNumber} und test: ${test[propertyName]}`);
-                }
-            } */
-
-           /*  let productCounter = `product${pressedProductNumber}`;
-            test[productCounter] += 1;
-            let counti = test[productCounter]; */
-
             let currentCounter = test[`product${pressedProductNumber}`];
             currentCounter++;
             test[`product${pressedProductNumber}`] = currentCounter;
-
-            /* debugger; */
 
             buyAmount.innerHTML = "";
             buyAmount.innerHTML = buyButtonUpdate(currentCounter);
 
             console.log(`fetch erfolgreich`);
-        })
-        .catch((error) => {
-            console.log('Error while loading data');
-        });
-
-    console.log("save test");
+            console.log(`PressedProductNumber: ${pressedProductNumber}`);
 };
 
 

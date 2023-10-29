@@ -33,5 +33,11 @@
         "productDesc": "Body Cream",
         "img": "./images/product_6.png",
         "price": "190$"
+    },
+
+    {
+        "productDesc": "Body Cream",
+        "img": "./images/product_6.png",
+        "price": "190$"
     }
 ]
