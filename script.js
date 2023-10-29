@@ -16,6 +16,7 @@ function getById(elementName) {
 function init() {
     generateNavBar();
     renderProducts();
+    generateFooter();
 };
 
 
