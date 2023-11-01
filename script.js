@@ -2,6 +2,7 @@ let productNumber = 0;
 let buyBtnNumber = 0;
 let addBtnNumber = 0;
 let buyAmountNumber = 0;
+let testAmountNumber = 0;
 let itemCounter = 0;
 
 let test = {};
@@ -14,6 +15,7 @@ function getById(elementName) {
 
 // init function
 function init() {
+    loadData();
     generateNavBar();
     renderProducts();
     generateFooter();
@@ -35,14 +37,34 @@ function renderProducts() {
                 buyBtnNumber++;
                 addBtnNumber++;
                 buyAmountNumber++;
+                testAmountNumber++;
                 productsContainer.innerHTML += createProducts(product);
             }
+            console.log(test)
 
-            for (let i = 1; i <= data.length; i++) {
-                let productKey = `product${i}`;
-                test[productKey] = 0;
-                console.log(`Initialized test value for product ${i}: ${test[productKey]}`);
-            };
+            contextReturn()
+                .then(()=> {
+                    let keys = Object.keys(test);
+                    for (let i = 0; i < keys.length; i++){
+                        let buyBtnId = document.getElementById(`testAmount${i}`);
+                    }
+                })
+                .catch(() => {
+                    console.log(Error)
+                });
+
+            let getSavedData = loadData();
+            for (let j = 0; j < getSavedData.length; j ++) {
+                let testKey = `product${j}`;
+                if (testKey < 1){
+                    for (let i = 1; i <= data.length; i++) {
+                        let productKey = `product${i}`;
+                        test[productKey] = 0;
+                        console.log(`Initialized test value for product ${i}: ${test[productKey]}`);
+                    };
+                }
+            }
+          
 
         })
         .catch((error) => {
@@ -72,11 +94,11 @@ function fetchProductData() {
 }
 
 
-function buyButtonUpdate(itemCounter) {
-    return /* html */`
+/* function buyButtonUpdate(itemCounter) {
+    return `
             <p class="item-num">${itemCounter}</p>
     `;
-}
+} */
 
 function addItem(add) {
     let pressedProductNumber = add.parentNode.parentNode.children[0].children[0].id.slice(7);
@@ -86,11 +108,17 @@ function addItem(add) {
             currentCounter++;
             test[`product${pressedProductNumber}`] = currentCounter;
 
-            buyAmount.innerHTML = "";
-            buyAmount.innerHTML = buyButtonUpdate(currentCounter);
+            /* buyAmount.innerHTML = ""; */
+            /* buyAmount.innerHTML = buyButtonUpdate(currentCounter); */
 
+              /* test */
+              let testAmount = getById(`testAmount${pressedProductNumber}`);
+              console.log(testAmount);
+              testAmount.innerHTML = currentCounter;
+              /* test */
+
+            saveData();
             console.log(`fetch erfolgreich`);
-            console.log(`PressedProductNumber: ${pressedProductNumber}`);
 };
 
 function removeItem(remove){
@@ -101,9 +129,37 @@ function removeItem(remove){
             currentCounter--;
             test[`product${pressedProductNumber}`] = currentCounter;
 
-            buyAmount.innerHTML = "";
-            buyAmount.innerHTML = buyButtonUpdate(currentCounter);
+            /* buyAmount.innerHTML = ""; */
+            /* buyAmount.innerHTML = buyButtonUpdate(currentCounter); */
+
+             /* test */
+             let testAmount = getById(`testAmount${pressedProductNumber}`);
+             console.log(testAmount);
+             testAmount.innerHTML = currentCounter;
+             /* test */
+
+            saveData();
 }
+
+function saveData() {
+    let testData = JSON.stringify(test);
+    localStorage.setItem("products", testData);
+}
+
+function loadData() {
+    let loadedData = JSON.parse(localStorage.getItem("products"));
+    test = loadedData;
+
+    return loadedData;
+}
+
+function contextReturn() {
+    return new Promise((resolve, reject) => {
+            resolve("Success :)");
+            reject("Failed Promise :/");
+    })
+}
+
 
 
 function createProducts(product) {
@@ -115,7 +171,9 @@ function createProducts(product) {
             <div class="product-buttons">
                 <div id="buy-btn-container"> 
                     <button id="buy-btn${buyBtnNumber}" class="buy-btn">Buy</button>
-                    <span id="buyAmount${buyAmountNumber}"></span>
+                    <span id="buyAmount${buyAmountNumber}">
+                        <p id="testAmount${testAmountNumber}" class="item-num">${itemCounter}</p>
+                    </span>
                 </div>
                 <div class="decrease-increase-btns">
                     <button onclick="addItem(this)" id="add-btn${addBtnNumber}" class="increase">+</button>
